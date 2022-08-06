@@ -1,0 +1,83 @@
+@mixin text-style-12() {
+  font-size: $font-size-12;
+  line-height: $line-height-12;
+  letter-spacing: $letter-spacing-12;
+}
+
+@mixin text-style-13() {
+  font-size: $font-size-13;
+  line-height: $line-height-13;
+  letter-spacing: $letter-spacing-13;
+}
+
+@mixin text-style-14() {
+  font-size: $font-size-14;
+  line-height: $line-height-14;
+  letter-spacing: $letter-spacing-14;
+}
+
+@mixin text-style-16() {
+  font-size: $font-size-16;
+  line-height: $line-height-16;
+  letter-spacing: $letter-spacing-16;
+}
+
+@mixin text-style-18() {
+  font-size: $font-size-18;
+  line-height: $line-height-18;
+  letter-spacing: $letter-spacing-18;
+}
+
+@mixin text-style-24() {
+  font-size: $font-size-24;
+  line-height: $line-height-24;
+  letter-spacing: $letter-spacing-24;
+}
+
+@mixin text-style($size, $color: false) {
+  @if ($size == 12) {
+    @include text-style-12;
+  }
+  @if ($size == 13) {
+    @include text-style-13;
+  }
+  @if ($size == 14) {
+    @include text-style-14;
+  }
+  @if ($size == 16) {
+    @include text-style-16;
+  }
+  @if ($size == 18) {
+    @include text-style-18;
+  }
+  @if ($size == 24) {
+    @include text-style-24;
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
+
+// p {
+//   @include text-style(24, $primary);
+// }
+
+// @mixin text-style($size, $color) ->
+// p {
+//   @include text-style(12, $primary);
+// } -> color: #3f4150;
+// 컬러를 인자로 줘서 넣어서 쓸 수 있는데 컬러가 필요 없는 경우가 있으면 문제가 발생해서
+// @mixin text-style($size, $color: false) ->
+//  ($color: false)를 기본값으로 주고 유저가 주는 값이 있으면 그게 들어감 그런데 아무값이나 다 받아도 실행이 되기때문에(color: 13px) @if (type-of($color) == color)로 받은 값이 컬러값이 맞는경우에만 실행을 시킨다
+// p {
+//     @include text-style(12);
+//   } ->기본값이 false라서 컬러표시 안됨
+
+//   b {
+//     @include text-style(14, 13px);
+//   } ->받은 값이 컬러가 아니라 표시 안됨
+
+//   i {
+//     @include text-style(24, $primary);
+//   } ->받은값이 컬러라서 color: #3f4150;;
