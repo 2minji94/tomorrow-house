@@ -1,0 +1,38 @@
+$flex-map: (
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  stretch: stretch,
+  center: center,
+);
+// 3) map을 만들어서 축약형을 key와 value로 만듬
+
+@function _get-flex-value($key) {
+  @return map-get($flex-map, $key);
+}
+// 2) 축약형으로 적기위한 function을 만듬 전체를 다 if로 할 수 있지만 길어서
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+}
+// 1) flexbox 반복작업을 쉽게하기 위해서 mixin으로 만듬
+
+// p {
+//   @include flexbox(start);
+// } >> flex-start / center
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+}
+
+@mixin column-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: _get-flex-value($jc);
+  align-items: _get-flex-value($ai);
+}
