@@ -1,0 +1,37 @@
+@mixin pos-center-x($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+// 유효성검사를 해서 $type값이 fixed 이거나 absolute인 경우만 실행되도록 한다
+
+// p {
+//   @include pos-center-x;
+// } >>실행됨 기본값 absolute
+
+// i {
+//   @include pos-center-x(fixed);
+// } >>실행됨
+
+// span {
+//   @include pos-center-x(13px);
+// } >>안됨
+
+@mixin pos-center-y($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin pos-center($type: absolute) {
+  @if ($type == fixed or $type == absolute) {
+    position: $type;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
