@@ -41,35 +41,34 @@
 
   .page-list {
     @include flexbox;
+  }
+  .page-item {
+    margin-right: 4px;
 
-    .page-item {
-      margin-right: 4px;
-
-      &.is-active {
-        a,
-        button {
-          color: $white;
-          background-color: $blue;
-
-          &:hover {
-            color: $white;
-          }
-        }
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-
+    &.is-active {
       a,
       button {
-        @extend %page-item-base;
-        min-width: 26px;
-        padding: 0 4px;
+        color: $white;
+        background-color: $blue;
 
         &:hover {
-          color: $blue;
+          color: $white;
         }
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a,
+    button {
+      @extend %page-item-base;
+      min-width: 26px;
+      padding: 0 4px;
+
+      &:hover {
+        color: $blue;
       }
     }
   }
